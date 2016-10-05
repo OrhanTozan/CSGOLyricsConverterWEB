@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>CSGOLyricsConverterWEB</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 </head>
 <body>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="index.js"></script>
+	<div class="container">
+		<div class="row">
+			<h1>CSGOLyricsConverter<br><small>Web Version</small></h1>
+		</div>
+		<div class="row">
+			<form class="col s12">
+				<div class="row">
+					<h2>Step 1: Choose file</h2>
+					<div class="file-field input-field">
+						<div class="btn">
+							<span>File</span>
+							<input type="file" accept=".txt">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<h2>Step 2: Set binding key</h2>
+					<div class="input-field">
+						<label for="bindKey">Binding key</label>
+						<input placeholder="e.g. MOUSE3" type="text" name="bindKey">
+					</div>
+				</div>
+				<div class="row">
+					<h2>Step 3: Convert!</h2>
+					<a class="btn-large waves-effect waves-light" id="converBtn">Convert</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
