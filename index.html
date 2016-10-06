@@ -5,37 +5,49 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<style type="text/css">
+		h3 {
+			margin-bottom: 30px;
+			word-wrap: break-word;
+		}
+	</style>
 	<title>CSGOLyricsConverterWeb</title>
 </head>
 <body class="blue darken-3" style="color:white;">
 	<div class="container">
 		<div class="row">
-			<h1>CSGOLyricsConverter<br><small>Web Version</small></h1>
+			<div class="col s12" style="max-width: 100%;">
+				<h1>CSGOLyricsConverter<br><small>Web Version</small></h1>
+			</div>
 		</div>
 		<div class="row">
 			<form class="col s12">
-				<div class="row">
-					<h2>Step 1: Choose file</h2>
-					<div class="file-field input-field">
-						<div class="btn waves-effect waves-light green">
-							<span>File</span>
-							<input type="file" accept=".txt" id="fileInput">
-						</div>
-						<div class="file-path-wrapper">
-							<input class="file-path validate" type="text">
+				<div class="col s8">
+					<div class="row row1">
+						<h3>Step 1: Choose file</h3>
+						<div class="input-field">
+							<label for="LyricsText">Lyrics</label>
+							<textarea placeholder="Place your lyrics here! (No blank lines)" class="materialize-textarea rawtext" type="text" name="LyricsText"></textarea>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<h2>Step 2: Set binding key</h2>
-					<div class="input-field">
-						<label for="bindKey">Binding key</label>
-						<input placeholder="e.g. MOUSE3" type="text" name="bindKey">
+					<div class="row row2" style="display:none">
+						<h3>Step 2: Set binding key</h3>
+						<div class="input-field">
+							<label for="bindKey">Binding key</label>
+							<input placeholder="e.g. MOUSE3" type="text" name="bindKey">
+						</div>
+					</div>
+					<div class="row row3" style="display:none">
+						<h3>Step 3: Convert!</h3>
+						<a class="btn-large waves-effect waves-light green" id="convertBtn">Convert</a>
+					</div>
+					<div class="row">
+						<a class="btn waves-effect waves-light green step">Next step</a>
 					</div>
 				</div>
-				<div class="row">
-					<h2>Step 3: Convert!</h2>
-					<a class="btn-large waves-effect waves-light green" id="convertBtn">Convert</a>
+				<div class="col s4 rightcol hide-on-med-and-down" style="display:none;">
+					<h3 style="margin:0px;">Preview</h3>
+					<textarea class="materialize-textarea temptext" readonly></textarea>
 				</div>
 			</form>
 		</div>
