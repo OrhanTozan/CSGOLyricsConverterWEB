@@ -3,12 +3,13 @@ $(document).ready(function()
 	var step = 1;
 	var bindkey;
 	var rawlyrics;
+	var errorMessage = "Please enter something.";
 
 	$(function() {
 		$("form").submit(function() { return false; });
 	});
 
-	$('input, textarea').keypress(function(e){
+	$('input').keypress(function(e){
 		if(e.keyCode==13)
 			$('.step').click();
 	});
@@ -17,25 +18,43 @@ $(document).ready(function()
 	{
 		if (step == 1)
 		{
-			rawLyrics = $(".rawtext").val();	
-			$(".temptext").html(rawLyrics);
-			$(".temptext").trigger('autoresize');
-			$(".row1").slideUp();
-			$(".row2").slideDown();
-			$(".row3").slideUp();
-			$(".rightcol").slideDown();
+			if ($(".rawtext").val().length > 0)
+			{	
+				rawLyrics = $(".rawtext").val();
+				console.log(rawLyrics.length);
+				$(".temptext").html(rawLyrics);
+				$(".temptext").trigger('autoresize');
+				$(".row1").slideUp();
+				$(".row2").slideDown();
+				$(".row3").slideUp();
+				$(".rightcol").slideDown();
+				step++;
+			}
+			else {
+				console.log("invalid");
+				$(".rawtext").addClass("invalid");
+				Materialize.toast(errorMessage, 3000);
+			}
 		}
 		else if (step == 2)
 		{
-			bindKey = $("#bindKey").val();
-			$(".temptext").html("<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n" + $(".temptext").html());
-			$(".temptext").trigger('autoresize');
-			$(".row1").slideUp();
-			$(".row2").slideUp();
-			$(".row3").slideDown();
-			$(this).fadeOut();
+			if ($("#bindKey").val().length > 0)
+			{
+				bindKey = $("#bindKey").val();
+				$(".temptext").html("<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n" + $(".temptext").html());
+				$(".temptext").trigger('autoresize');
+				$(".row1").slideUp();
+				$(".row2").slideUp();
+				$(".row3").slideDown();
+				$(this).fadeOut();
+				step++;
+			}
+			else {
+				console.log("invalid");
+				$("#bindKey").addClass("invalid");
+				Materialize.toast(errorMessage, 3000);
+			}
 		}
-		step++;
 	});
 
 	$("#convertBtn").click(function()
@@ -53,7 +72,7 @@ $(document).ready(function()
 		{
 			$(".leftcol").slideUp(400, function()
 			{
-				$(".rightcol").removeClass("offset-s1");
+				$(".rightcol").removeClass("offset-l1");
 				$(".rightcol").removeClass("hide-on-med-and-down");
 				$("#temptextTitle").text("Result");
 			});
