@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style type="text/css">
 		.btn, .btn-large {
 			color: black;
@@ -16,9 +17,20 @@
 			font-size:36px;
 			font-size:9vw;
 		}
+		#infolink {
+			font-size: 36px;
+			font-size: 7vw;
+			color:yellow;
+		}
+		i {
+			margin:0;
+		}
 		@media (min-width: 1200px) {
 			#header {
-				font-size:96px;
+				font-size: 96px;
+			}
+			#infolink {
+				font-size: 72px;
 			}
 		}
 	</style>
@@ -29,6 +41,21 @@
 		<div class="row">
 			<div class="col s12" style="max-width: 100%;">
 				<h1 id="header">CSGOLyricsConverter<br><small>Web Version</small></h1>
+				<a id="infolink" href="#" class="valign-wrapper">What is this?<i class="material-icons valign">help</i></a>
+				<div class="card-panel blue blue darken-2 col s12 l6" id="info" style="display:none;">
+					<p>
+						<b>Description</b><br>
+						This app is able to turn the lyrics of your favorite song into a <span style="color:yellow;">CSGO script</span>.
+						<br>The <span style="color:yellow;">CSGO script</span> lets you shout in chat every line of the song one by one with one bindkey.<br><br>
+						<b>Instructions</b>
+						<ol>
+							<li>Follow the steps</li>
+							<li>Paste the result in a &lt;filename&gt;.cfg CSGO cfg folder.</li>
+							<li>Finally, when in-game, type in the console<br><span style="font-family:'Courier'">exec &lt;filename&gt;</span></li>
+						</ol>
+						Happy singing!
+					</p>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -67,8 +94,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script type="text/javascript" src="index.js"></script>
-<script type="text/javascript">
-	
-</script>
 </body>
 </html>

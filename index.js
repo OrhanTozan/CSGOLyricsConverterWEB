@@ -4,6 +4,23 @@ $(document).ready(function()
 	var bindkey;
 	var rawlyrics;
 	var errorMessage = "Please enter something.";
+	var device;
+	
+	$("#infolink").click(function()
+	{
+		$("#info").slideToggle();
+	});
+
+	if ($("#header").css("font-size") == "96px")
+	{
+		$("i").addClass("medium");
+		device = "desktop";
+	}
+	else
+	{
+		$("i").addClass("small");
+		device = "mobile";
+	}
 
 	$(function() {
 		$("form").submit(function() { return false; });
