@@ -8,7 +8,7 @@ $(document).ready(function()
 	var scriptedLyrics;
 	var rawScriptedLyrics;
 	
-	$("#infolink").click(function()
+	$(".infoblock").click(function()
 	{
 		$("#info").slideToggle();
 	});
@@ -17,6 +17,7 @@ $(document).ready(function()
 	{
 		$("i").addClass("medium");
 		device = "desktop";
+		$("#bottom").remove();
 	}
 	else
 	{
@@ -50,7 +51,6 @@ $(document).ready(function()
 				step++;
 			}
 			else {
-				console.log("invalid");
 				$(".rawtext").addClass("invalid");
 				Materialize.toast(errorMessage, 3000);
 			}
@@ -69,7 +69,6 @@ $(document).ready(function()
 				step++;
 			}
 			else {
-				console.log("invalid");
 				$("#bindKey").addClass("invalid");
 				Materialize.toast(errorMessage, 3000);
 			}
@@ -110,6 +109,6 @@ $(document).ready(function()
 	{
 		var file = new File([rawScriptedLyrics], "lyrics.cfg", {type: "text/plain;charset=utf-8"});
 		saveAs(file);
-		$("#finalInst").slideDown();
+		$("#finalInst").show();
 	});
 });
