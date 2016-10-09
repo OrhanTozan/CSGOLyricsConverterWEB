@@ -77,6 +77,13 @@ $(document).ready(function()
 	$("#convertBtn").click(function()
 	{
 		var lines = rawLyrics.split("\n");
+		for (var i = 0; i < lines.length; i++)
+		{
+			if (lines[i].length <= 0)
+			{
+				lines.splice(i, 1);
+			}
+		}
 		var scriptedLyrics = "<span style=\"color:yellow;\">alias nextLine \"l0\"</span>";
 		for (let i = 0; i < lines.length; i++)
 		{
@@ -84,15 +91,13 @@ $(document).ready(function()
 		}
 		$(".temptext").html("<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n" + scriptedLyrics);
 		
-		
-		setTimeout(function()
+		$(".leftcol").slideUp(400, function()
 		{
-			$(".leftcol").slideUp(400, function()
-			{
-				$(".rightcol").removeClass("offset-l1");
-				$(".rightcol").removeClass("hide-on-med-and-down");
-				$("#temptextTitle").text("Result");
-			});
+			$(".rightcol").removeClass("offset-l1");
+			$(".rightcol").removeClass("hide-on-med-and-down");
+			$("#temptextTitle").text("Result");
+			$(".saveBtn").fadeIn();
 		});
+		
 	});
 });
