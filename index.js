@@ -85,10 +85,10 @@ $(document).ready(function()
 				lines.splice(i, 1);
 			}
 		}
-		scriptedLyrics = "<span style=\"color:yellow;\">alias nextLine \"l0\"</span>\r\n";
-		scriptedLyrics += "<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>";
-		rawScriptedLyrics = "alias nextLine \"l0\"\r\n";
-		rawScriptedLyrics += "bind " + bindKey + " \"nextLine\"";
+		scriptedLyrics = "<span style=\"color:yellow;\">alias nextLine \"l0\"</span>";
+		scriptedLyrics += "\r\n<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>";
+		rawScriptedLyrics = "alias nextLine \"l0\"";
+		rawScriptedLyrics += "\r\nbind " + bindKey + " \"nextLine\"";
 		for (let i = 0; i < lines.length; i++)
 		{
 			scriptedLyrics += "\r\n<span style=\"color:yellow;\">alias l" + i + " \"say </span>" + lines[i] + "<span style=\"color:yellow;\">;alias nextLine l" + (i + 1) + "\"</span>";
