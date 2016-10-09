@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<script src="https://use.fontawesome.com/728eb937e2.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style type="text/css">
 		.btn, .btn-large {
@@ -17,44 +18,84 @@
 			font-size:36px;
 			font-size:9vw;
 		}
+		#headerblock {
+			padding: 1rem; 
+			width: 100%;
+			margin-top:0px;
+		}
+
 		#infolink {
 			font-size: 36px;
-			font-size: 7vw;
+			font-size: 5vw;
 			color:yellow;
 		}
-		i {
+		#gitLink {
+			color: white;
+		}
+
+		.material-icon {
 			margin:0;
+		}
+
+		.fa {
+			margin-left: 0px;
+			margin-right: 10px;
 		}
 		@media (min-width: 1200px) {
 			#header {
 				font-size: 96px;
 			}
 			#infolink {
-				font-size: 72px;
+				font-size: 48px;
+			}
+			#gitLink {
+				margin-top: 180px;
+			}
+			#headerblock {
+				padding: 0rem 1rem;
 			}
 		}
 	</style>
 	<title>CSGOLyricsConverterWeb</title>
 </head>
 <body class="blue darken-3" style="color:white;">
+	<div class="row">
+		<div class="card-panel blue darken-3 z-depth-1" id="headerblock">
+		<div class="row">
+				<div class="col s12 l6">
+					<h1 id="header">CSGOLyricsConverter<br><small>Web Version</small></h1>
+				</div>
+				<div class="col s12 l2 offset-l4">
+					<a href="https://github.com/NahroTo/CSGOLyricsConverterWEB" id="gitLink" class="btn waves-effect blue right-align">
+						<i class="fa fa-github" aria-hidden="true"></i>Source Code
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col s12" style="max-width: 100%;">
-				<h1 id="header">CSGOLyricsConverter<br><small>Web Version</small></h1>
-				<a id="infolink" href="#" class="valign-wrapper">What is this?<i class="material-icons valign">help</i></a>
-				<div class="card-panel blue blue darken-2 col s12 l6" id="info" style="display:none;">
-					<p>
-						<b>Description</b><br>
-						This app is able to turn the lyrics of your favorite song into a <span style="color:yellow;">CSGO script</span>.
-						<br>The <span style="color:yellow;">CSGO script</span> lets you shout in chat every line of the song one by one with one bindkey.<br><br>
-						<b>Instructions</b>
-						<ol>
-							<li>Follow the steps</li>
-							<li>Paste the result in a &lt;filename&gt;.cfg file in the CSGO cfg folder.</li>
-							<li>Finally, when in-game, type in the console<br><span style="font-family:'Courier'">exec &lt;filename&gt;</span></li>
-						</ol>
-						Happy singing!
-					</p>
+				<div class="row">
+					<div class="card-panel blue darken-2 col s7 l5" style="padding:1rem 2rem;">
+						<a id="infolink" href="#" class="valign-wrapper">What is this?<i class="material-icons valign">help</i></a>
+						<div class="row">
+							<div id="info" style="display:none;padding: 0 0.75rem;">
+								<p>
+									<b>Description</b><br>
+									This app is able to turn the lyrics of your favorite song into a <span style="color:yellow;">CSGO script</span>.
+									<br>The <span style="color:yellow;">CSGO script</span> lets you shout in chat every line of the song one by one with one bindkey.<br><br>
+									<b>Instructions</b>
+									<ol>
+										<li>Follow the steps</li>
+										<li>Paste the result in a &lt;filename&gt;.cfg file in the CSGO cfg folder.</li>
+										<li>Finally, when in-game, type in the console<br><span style="font-family:'Courier'">exec &lt;filename&gt;</span></li>
+									</ol>
+									Happy singing!
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
