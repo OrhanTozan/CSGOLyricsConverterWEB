@@ -107,7 +107,7 @@ $(document).ready(function()
 	});
 	$(".saveBtn").click(function()
 	{
-		var file = new File([rawScriptedLyrics], "lyrics.cfg", {type: "text/plain;charset=utf-8"});
+		var file = new File([rawScriptedLyrics], "lyrics.cfg");
 		saveAs(file);
 		$("#finalInst").show();
 	});
