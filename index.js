@@ -86,14 +86,14 @@ $(document).ready(function()
 			}
 		}
 		scriptedLyrics = "<span style=\"color:yellow;\">alias nextLine \"l0\"</span>";
+		scriptedLyrics += "<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n";
 		rawScriptedLyrics = "alias nextLine \"l0\"";
+		rawScriptedLyrics = "bind " + bindKey + " \"nextLine\"\r\n";
 		for (let i = 0; i < lines.length; i++)
 		{
 			scriptedLyrics += "\r\n<span style=\"color:yellow;\">alias l" + i + " \"say </span>" + lines[i] + "<span style=\"color:yellow;\">;alias nextLine l" + (i + 1) + "\"</span>";
 			rawScriptedLyrics += "\r\nalias l" + i + " \"say " + lines[i] + ";alias nextLine l" + (i + 1) + "\"";
 		}
-		scriptedLyrics = "<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n" + scriptedLyrics;
-		rawScriptedLyrics = "bind " + bindKey + " \"nextLine\"\r\n" + rawScriptedLyrics;
 		$(".temptext").html(scriptedLyrics);
 		
 		$(".leftcol").slideUp(400, function()
