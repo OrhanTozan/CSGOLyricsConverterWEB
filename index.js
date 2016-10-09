@@ -110,5 +110,6 @@ $(document).ready(function()
 	{
 		var file = new File([rawScriptedLyrics], "lyrics.cfg", {type: "text/plain;charset=utf-8"});
 		saveAs(file);
+		$("#finalInst").slideDown();
 	});
 });
