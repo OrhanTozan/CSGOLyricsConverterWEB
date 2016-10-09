@@ -5,6 +5,8 @@ $(document).ready(function()
 	var rawlyrics;
 	var errorMessage = "Please enter something.";
 	var device;
+	var scriptedLyrics;
+	var rawScriptedLyrics;
 	
 	$("#infolink").click(function()
 	{
@@ -38,9 +40,9 @@ $(document).ready(function()
 			if ($(".rawtext").val().length > 0)
 			{	
 				rawLyrics = $(".rawtext").val();
-				console.log(rawLyrics.length);
 				$(".temptext").html(rawLyrics);
 				$(".temptext").trigger('autoresize');
+				rawScriptedLyrics = rawLyrics;
 				$(".row1").slideUp();
 				$(".row2").slideDown();
 				$(".row3").slideUp();
@@ -84,12 +86,16 @@ $(document).ready(function()
 				lines.splice(i, 1);
 			}
 		}
-		var scriptedLyrics = "<span style=\"color:yellow;\">alias nextLine \"l0\"</span>";
+		scriptedLyrics = "<span style=\"color:yellow;\">alias nextLine \"l0\"</span>";
+		rawScriptedLyrics = "alias nextLine \"l0\"";
 		for (let i = 0; i < lines.length; i++)
 		{
 			scriptedLyrics += "\r\n<span style=\"color:yellow;\">alias l" + i + " \"say </span>" + lines[i] + "<span style=\"color:yellow;\">;alias nextLine l" + (i + 1) + "\"</span>";
+			rawScriptedLyrics += "\r\nalias l" + i + " \"say " + lines[i] + ";alias nextLine l" + (i + 1) + "\"";
 		}
-		$(".temptext").html("<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n" + scriptedLyrics);
+		scriptedLyrics = "<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>\r\n" + scriptedLyrics;
+		rawScriptedLyrics = "bind " + bindKey + " \"nextLine\"\r\n" + rawScriptedLyrics;
+		$(".temptext").html(scriptedLyrics);
 		
 		$(".leftcol").slideUp(400, function()
 		{
@@ -99,5 +105,10 @@ $(document).ready(function()
 			$(".saveBtn").fadeIn();
 		});
 		
+	});
+	$(".saveBtn").click(function()
+	{
+		var file = new File([rawScriptedLyrics], "lyrics.cfg", {type: "text/plain;charset=utf-8"});
+		saveAs(file);
 	});
 });
