@@ -7,8 +7,9 @@ $(document).ready(function()
 	var device;
 	var scriptedLyrics;
 	var rawScriptedLyrics;
+	var loop;
 	
-	$(".infoblock").click(function()
+	$("#infolink").click(function()
 	{
 		$("#info").slideToggle();
 	});
@@ -89,10 +90,25 @@ $(document).ready(function()
 		scriptedLyrics += "\r\n<span style=\"color:yellow;\">bind " + bindKey + " \"nextLine\"</span>";
 		rawScriptedLyrics = "alias nextLine \"l0\"";
 		rawScriptedLyrics += "\r\nbind " + bindKey + " \"nextLine\"";
+		loop = $("#loopbox").is(":checked");
 		for (let i = 0; i < lines.length; i++)
 		{
+			if (i == lines.length - 1) // IF LAST LINE
+			{
+				if(loop)
+				{
+					scriptedLyrics += "\r\n<span style=\"color:yellow;\">alias l" + i + " \"say </span>" + lines[i] + "<span style=\"color:yellow;\">;alias nextLine l0\"</span>";
+					rawScriptedLyrics += "\r\nalias l" + i + " \"say " + lines[i] + ";alias nextLine l0\"";
+				}
+				else {
+					scriptedLyrics += "\r\n<span style=\"color:yellow;\">alias l" + i + " \"say </span>" + lines[i] + "\"";
+					rawScriptedLyrics += "\r\nalias l" + i + " \"say " + lines[i] + "\"";
+				}
+				break;
+			}
 			scriptedLyrics += "\r\n<span style=\"color:yellow;\">alias l" + i + " \"say </span>" + lines[i] + "<span style=\"color:yellow;\">;alias nextLine l" + (i + 1) + "\"</span>";
 			rawScriptedLyrics += "\r\nalias l" + i + " \"say " + lines[i] + ";alias nextLine l" + (i + 1) + "\"";
+
 		}
 		$(".temptext").html(scriptedLyrics);
 		

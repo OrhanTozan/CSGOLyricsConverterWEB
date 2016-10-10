@@ -33,6 +33,7 @@
 			padding:0px;
 			margin-top:5px;
 			margin-bottom: 5px;
+			margin-left:10px;
 		}
 		#finalList {
 			font-size: 20px;
@@ -94,24 +95,22 @@
 		<div class="row">
 			<div class="col s12" style="max-width: 100%;">
 				<div class="row">
-					<div class="card-panel blue darken-2 col s12 l5 infoblock">
-						<a id="infolink" href="#" class="valign-wrapper">What is this?<i class="material-icons valign">help</i></a>
-						<div class="row">
-							<div id="info" style="display:none;padding: 0 0.75rem;">
-								<p>
-									<b>Description</b><br>
-									This app is able to turn the lyrics of your favorite song into a <span style="color:yellow;">CSGO script</span>.
-									<br>The <span style="color:yellow;">CSGO script</span> lets you shout in chat every line of the song one by one with one bindkey.<br><br>
-									<b>Instructions</b>
-									<ol>
-										<li>Follow the steps.</li>
-										<li>Download the result, and put the file in your CSGO cfg folder.</li>
-										<li>Finally, when in-game, type in the console<br><span style="font-family:'Courier'">exec lyrics</span></li>
-										<li>Now press the bindkey you chose and you'll see the action yourself.</li>
-									</ol>
-									Happy singing!
-								</p>
-							</div>
+					<a id="infolink" href="#" class="valign-wrapper">What is this?<i class="material-icons valign">help</i></a>
+					<div class="row">
+						<div id="info" style="display:none;padding: 0 0.75rem;">
+							<p>
+								<b>Description</b><br>
+								This app is able to turn the lyrics of your favorite song into a <span style="color:yellow;">CSGO script</span>.
+								<br>The <span style="color:yellow;">CSGO script</span> lets you shout in chat every line of the song one by one with one bindkey.<br><br>
+								<b>Instructions</b>
+								<ol>
+									<li>Follow the steps.</li>
+									<li>Download the result, and put the file in your CSGO cfg folder.</li>
+									<li>Finally, when in-game, type in the console<br><span style="font-family:'Courier'">exec lyrics</span></li>
+									<li>Now press the bindkey you chose and you'll see the action yourself.</li>
+								</ol>
+								Happy singing!
+							</p>
 						</div>
 					</div>
 				</div>
@@ -121,7 +120,7 @@
 			<form class="col s12">
 				<div class="col s12 l5 leftcol">
 					<div class="row row1">
-						<h3>Step 1: Choose file</h3>
+						<h3>Step 1: Choose lyrics</h3>
 						<div class="input-field">
 							<label for="LyricsText">Lyrics</label>
 							<textarea placeholder="Place your lyrics here!" class="materialize-textarea rawtext" type="text" name="LyricsText"></textarea>
@@ -133,6 +132,10 @@
 							<label for="bindKey">Binding key</label>
 							<input placeholder="e.g. MOUSE3" type="text" id="bindKey">
 						</div>
+						<p>
+							<input type="checkbox" class="filled-in" id="loopbox" checked="checked" />
+							<label for="loopbox">Start from beginning when end is reached</label>
+						</p>
 					</div>
 					<div class="row row3" style="display:none">
 						<h3>Step 3: Convert!</h3>
